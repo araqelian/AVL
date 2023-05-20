@@ -26,6 +26,9 @@ public:
 	Node*	Search(int data);
 
 	void	Inorder_Traversal();
+	void	Preorder_Traversal();
+	void	Postorder_Traversal();
+
 
 private:
 	Node*	root;
@@ -47,4 +50,6 @@ private:
 	Node*	Right_Rotate(Node* x);
 
 	void	Inorder_Traversal_helper(Node* node);
+	void	Preorder_Traversal_helper(Node* node);
+	void	Postorder_Traversal_helper(Node* node);
 };

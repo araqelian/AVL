@@ -57,6 +57,30 @@ void	AVL::Inorder_Traversal()
 	Inorder_Traversal_helper(tmp_root);
 }
 
+void	AVL::Preorder_Traversal()
+{
+	if (!this->root)
+	{
+		cout << "AVL-Tree is a empty." << endl;
+		return;
+	}
+
+	Node*	tmp_root = this->root;
+	Preorder_Traversal_helper(tmp_root);
+}
+
+void	AVL::Postorder_Traversal()
+{
+	if (!this->root)
+	{
+		cout << "AVL-Tree is a empty." << endl;
+		return;
+	}
+
+	Node*	tmp_root = this->root;
+	Postorder_Traversal_helper(tmp_root);
+}
+
 /********************/
 /*		Private		*/
 /********************/
@@ -261,4 +285,35 @@ void	AVL::Inorder_Traversal_helper(Node* node)
 	cout << "height:\t" << node->height << endl << endl;
 
 	Inorder_Traversal_helper(node->right);
+}
+
+void	AVL::Preorder_Traversal_helper(Node* node)
+{
+	if (!node)
+		return ;
+
+	if (node == this->root)
+		cout << "__ ROOT __" << endl;
+	
+	cout << "data:\t" << node->data << endl;
+	cout << "height:\t" << node->height << endl << endl;
+
+	Preorder_Traversal_helper(node->left);
+	Preorder_Traversal_helper(node->right);
+}
+
+void	AVL::Postorder_Traversal_helper(Node* node)
+{
+	if (!node)
+		return ;
+
+	Postorder_Traversal_helper(node->left);
+	Postorder_Traversal_helper(node->right);
+	
+	if (node == this->root)
+		cout << "__ ROOT __" << endl;
+	
+	cout << "data:\t" << node->data << endl;
+	cout << "height:\t" << node->height << endl << endl;
+
 }
